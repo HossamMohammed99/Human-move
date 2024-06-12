@@ -1,0 +1,1678 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/protos/SumoInterface.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/StraightRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadLine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/lincoln/LincolnMKZ.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/ibeo/protos/IbeoLux.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwayPole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/HighwaySign.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/geometries/protos/Extrusion.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Forest.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/bmw/BmwX5Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/citroen/CitroenCZeroSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/toyota/ToyotaPriusSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/lincoln/LincolnMKZSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/range_rover/RangeRoverSportSVRSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/mercedes_benz/MercedesBenzSprinterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/BusSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckTrailerSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckTankSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/ScooterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/ScooterDriver.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/MotorbikeSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/MotorbikeDriver.proto"
+
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The main vehicle uses distance-sensors and a front radar in order to overtake the other vehicles controlled by SUMO."
+  ]
+  title "Highway overtake"
+  ERP 0.6
+  basicTimeStep 10
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.35413706517948335 -0.5946549928642905 0.7217841633948704 4.749135977104375
+  position -270.41001214618115 39.44360858593558 50.953950204710715
+  near 1
+  follow "vehicle"
+  followSmoothness 0
+  lensFlare LensFlare {
+  }
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Fog {
+  color 0.93 0.96 1
+  visibilityRange 500
+}
+DEF FLOOR Solid {
+  boundingObject Plane {
+  }
+}
+SumoInterface {
+  gui FALSE
+  radius 250
+  laneChangeDelay 4
+}
+StraightRoadSegment {
+  translation 0 8.75 0.01
+  rotation 0 0 1 3.1415926535
+  id "0"
+  width 15
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  lines [
+    RoadLine {
+      type "continuous"
+      width 0.25
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 5000
+}
+StraightRoadSegment {
+  translation -5000 -8.75 0.01
+  name "road(1)"
+  id "1"
+  width 15
+  numberOfLanes 4
+  numberOfForwardLanes 4
+  lines [
+    RoadLine {
+      type "continuous"
+      width 0.25
+    }
+  ]
+  rightBorder FALSE
+  leftBorder FALSE
+  rightBarrier TRUE
+  leftBarrier TRUE
+  length 5000
+}
+DEF WEBOTS_VEHICLE0 LincolnMKZ {
+  hidden position_0_0 0.0001879226208079895
+  hidden position2_0_0 514.9987564090593
+  hidden position_0_1 0.0001896020291073841
+  hidden position2_0_1 515.5410999729929
+  hidden position_0_2 514.7024689420755
+  hidden position_0_3 515.1870468626394
+  hidden linearVelocity_0 -22.221040690703393 -0.18096908119441799 1.0923170446295404e-06
+  hidden angularVelocity_0 -1.7907423003627226e-05 2.5332853340026063e-07 -0.0015158270679904527
+  hidden rotation_1 9.396127701018247e-05 0.9999996416574902 -0.0008413418861894328 0.22243885872039254
+  hidden linearVelocity_1 -22.222299372120457 -0.17895110205125292 3.9513440827115904e-07
+  hidden angularVelocity_1 0.49977702935704704 -62.07393177190201 -0.008505408522096386
+  hidden rotation_2 9.480099804445886e-05 0.9999998228580907 -0.000587619398825621 0.31990483997375385
+  hidden linearVelocity_2 -22.219815461411073 -0.1789306611723834 -3.1399497333720107e-07
+  hidden angularVelocity_2 0.4997747199679668 -62.066054162792284 -0.00848873672000023
+  hidden rotation_3 0 1 0 0.5187262466506076
+  hidden linearVelocity_3 -22.222262634363222 -0.1834083944181274 3.666718448072466e-07
+  hidden angularVelocity_3 0.5117666573642595 -62.07383251614277 -0.008311926527386293
+  hidden rotation_4 0 -1 0 0.03414832608672231
+  hidden linearVelocity_4 -22.21977872555489 -0.18338790719461956 -3.4291519161551796e-07
+  hidden angularVelocity_4 0.5118470538028154 -62.06595421429267 -0.008292080677875152
+  translation -228.20695726786514 3.7149898503536916 0.31301456617477225
+  rotation -0.0014797832434876733 -5.8584668774957315e-05 0.9999989034040933 -3.133358224807348
+  controller "highway_overtake"
+  sensorsSlotFront [
+    DEF FRONT_RIGHT_LIDAR IbeoLux {
+      translation -0.225167 0.71 0
+      rotation 0 0 1 0.785398
+      name "ibeo 1"
+      useExtendedFieldOfView TRUE
+    }
+    DEF FRONT_LEFT_LIDAR IbeoLux {
+      translation -0.225 -0.71 0
+      rotation 0 0 -1 0.819204
+      name "ibeo 2"
+      useExtendedFieldOfView TRUE
+    }
+    DEF FRONT DistanceSensor {
+      translation -0.14 0 0.3
+      name "distance sensor front"
+      lookupTable [
+        0 0 0
+        20 20 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    DEF FRONT_RIGHT_0 DistanceSensor {
+      translation -0.292861 0.645126 0.3
+      rotation 0 0 1 0.130899
+      name "distance sensor front right 0"
+      lookupTable [
+        0 0 0
+        20 20 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    DEF FRONT_RIGHT_1 DistanceSensor {
+      translation -0.292861 0.645126 0.3
+      rotation 0 0 1 0.261799
+      name "distance sensor front right 1"
+      lookupTable [
+        0 0 0
+        15 15 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    DEF FRONT_RIGHT_2 DistanceSensor {
+      translation -0.292861 0.645126 0.3
+      rotation 0 0 1 0.392699
+      name "distance sensor front right 2"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    DEF FRONT_LEFT_0 DistanceSensor {
+      translation -0.284201 -0.650126 0.3
+      rotation 0 0 -1 0.130901
+      name "distance sensor front left 0"
+      lookupTable [
+        0 0 0
+        20 20 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    DEF FRONT_LEFT_1 DistanceSensor {
+      translation -0.284201 -0.650126 0.3
+      rotation 0 0 -1 0.2618007196
+      name "distance sensor front left 1"
+      lookupTable [
+        0 0 0
+        15 15 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    DEF FRONT_LEFT_2 DistanceSensor {
+      translation -0.284201 -0.650126 0.3
+      rotation 0 0 -1 0.3927007196
+      name "distance sensor front left 2"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      numberOfRays 2
+      aperture 0.1
+    }
+    Robot {
+      translation 0.11 0 0
+      children [
+        DEF radar Radar {
+          maxRange 60
+          horizontalFieldOfView 0.9
+          verticalFieldOfView 0.07854
+          minRadialSpeed -100
+          maxRadialSpeed 40
+          cellDistance 2
+          rangeNoise 0.25
+          speedNoise 0.12
+          angularNoise 0.001
+          frequency 76.5
+          transmittedPower 31
+          minDetectableSignal -80
+          occlusion TRUE
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 15.834172022672483 -4.378387165429419 -0.5
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.7615643027178916 0 0.23843569728210845
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.6885420140700241 0 0.31145798592997587
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0 0 1
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.4487635571765753 0 0.5512364428234247
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.27556000731190655 0 0.7244399926880934
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 -10
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.8 0 0.0117647
+                  transparency 0.7
+                }
+              }
+              geometry Box {
+                size 5 2.5 2
+              }
+            }
+          ]
+        }
+      ]
+      controller "radar_target_tracker"
+      supervisor TRUE
+    }
+  ]
+  sensorsSlotRear [
+    DEF REAR DistanceSensor {
+      translation 0 0 0.3
+      name "distance sensor rear"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      numberOfRays 2
+      aperture 0.2
+    }
+    DEF REAR_LEFT DistanceSensor {
+      translation -0.188938 0.705126 0.3
+      rotation 0 0 1 0.523599
+      name "distance sensor rear left"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      numberOfRays 2
+      aperture 0.2
+    }
+    DEF REAR_RIGHT DistanceSensor {
+      translation -0.188938 -0.705126 0.3
+      rotation 0 0 -1 0.5235988268
+      name "distance sensor rear right"
+      lookupTable [
+        0 0 0
+        10 10 0
+      ]
+      numberOfRays 2
+      aperture 0.2
+    }
+    DEF REAR_LEFT_LIDAR IbeoLux {
+      translation -0.164545 0.745 0
+      rotation 0 0 1 0.721593
+      name "ibeo 3"
+      useExtendedFieldOfView TRUE
+    }
+    DEF REAR_RIGHT_LIDAR IbeoLux {
+      translation -0.189857 -0.75851 0
+      rotation 0 0 1 -0.7915953071795858
+      name "ibeo 4"
+      useExtendedFieldOfView TRUE
+    }
+  ]
+  sensorsSlotTop [
+    DEF TOP_CAMERA Camera {
+      translation 0.48 0 0
+      width 512
+      height 256
+      near 1
+      far 1000
+      motionBlur 200
+      recognition Recognition {
+      }
+      lensFlare LensFlare {
+      }
+    }
+  ]
+  sensorsSlotCenter [
+    DEF RIGHT DistanceSensor {
+      translation 1.32 -0.9 0.3
+      rotation 0 0 1 -1.5708
+      name "distance sensor right"
+      lookupTable [
+        0 0 0
+        4 4 0
+      ]
+      numberOfRays 2
+      aperture 0.9
+    }
+    DEF LEFT DistanceSensor {
+      translation 1.32 0.9 0.3
+      rotation 0 0 1 1.5708
+      name "distance sensor left"
+      lookupTable [
+        0 0 0
+        4 4 0
+      ]
+      numberOfRays 2
+      aperture 0.9
+    }
+    GPS {
+      translation 5.03 0 0
+      rotation 0 0 1 3.14159
+    }
+  ]
+}
+DEF WEBOTS_VEHICLE1 RangeRoverSportSVRSimple {
+  translation -130.46564 10.421444 0.4
+  rotation 0 0 1 2.87979
+  name "vehicle(1)"
+}
+TrafficCone {
+  translation -118.18033 12.182304 0
+  rotation 0 0 -1 4.9741884
+}
+TrafficCone {
+  translation -127.19847 9.4738171 0
+  name "traffic cone(1)"
+}
+TrafficCone {
+  translation -122.40328 10.584217 0
+  name "traffic cone(2)"
+}
+DEF WEBOTS_VEHICLE2 Solid {
+  translation -114.07405 10.36436 0
+  name "solid(1)"
+}
+HighwayPole {
+  translation -215 16 0
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -600 16 0
+  name "highway pole(1)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -1000 16 0
+  name "highway pole(2)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -1400 16 0
+  name "highway pole(3)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -1800 16 0
+  name "highway pole(4)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -2200 16 0
+  name "highway pole(5)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -2600 16 0
+  name "highway pole(6)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+HighwayPole {
+  translation -3000 16 0
+  name "highway pole(7)"
+  stand 2
+  height 7
+  length 31
+  thickness 0.35
+  curveRadius 0.5
+  rightHorizontalSigns [
+    HighwaySign {
+      translation 0 -5.35 0
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  rightVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(1)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+  leftHorizontalSigns [
+    HighwaySign {
+      translation 0 17.5 0
+      name "highway sign(2)"
+      height 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_bayonne.jpg"
+      ]
+    }
+  ]
+  leftVerticalSigns [
+    HighwaySign {
+      translation 0 0 0.66
+      name "highway sign(3)"
+      height 1.7
+      length 3.5
+      texture [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/textures/highway_sign_sebastian.jpg"
+      ]
+    }
+  ]
+}
+Solid {
+  rotation -0.577349914474874 -0.5773499786187347 0.5773509144747258 2.0944
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/worlds/textures/ground_grass.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 1500 43
+        }
+      }
+      geometry Extrusion {
+        crossSection [
+          60 0, 59 0.061558297, 58 0.24471742, 57 0.54496738, 56 0.95491503, 55 1.4644661, 54 2.0610737, 53 2.7300475, 52 3.454915, 51 4.2178277, 50 5, 49 5.7821723, 48 6.545085, 47 7.2699525, 46 7.9389263, 45 8.5355339, 44 9.045085, 43 9.4550326, 42 9.7552826, 41 9.9384417, 40 10, 39 9.9384417, 38 9.7552826, 37 9.4550326, 36 9.045085, 35 8.5355339, 34 7.9389263, 33 7.2699525, 32 6.545085, 31 5.7821723, 30 5, 29 4.2178277, 28 3.454915, 27 2.7300475, 26 2.0610737, 25 1.4644661, 24 0.95491503, 23 0.54496738, 22 0.24471742, 21 0.061558297, 20 0, -20 0, -21 0.061558297, -22 0.24471742, -23 0.54496738, -24 0.95491503, -25 1.4644661, -26 2.0610737, -27 2.7300475, -28 3.454915, -29 4.2178277, -30 5, -31 5.7821723, -32 6.545085, -33 7.2699525, -34 7.9389263, -35 8.5355339, -36 9.045085, -37 9.4550326, -38 9.7552826, -39 9.9384417, -40 10, -41 9.9384417, -42 9.7552826, -43 9.4550326, -44 9.045085, -45 8.5355339, -46 7.9389263, -47 7.2699525, -48 6.545085, -49 5.7821723, -50 5, -51 4.2178277, -52 3.454915, -53 2.7300475, -54 2.0610737, -55 1.4644661, -56 0.95491503, -57 0.54496738, -58 0.24471742, -59 0.061558297, -60 0
+        ]
+        spine [
+          0 0 0
+          0 0 5000
+        ]
+        beginCap FALSE
+        endCap FALSE
+        ccw FALSE
+        creaseAngle 1.1
+      }
+      castShadows FALSE
+    }
+  ]
+  name "solid(2)"
+}
+Forest {
+  rotation 0 0 1 -1.5707953071795862
+  treesFiles [
+    "forest/highway_overtake/1.forest"
+  ]
+  shape []
+  type "cherry tree"
+  minHeight 4
+  maxRadius 2.5
+  minRadius 1.5
+}
+DEF SUMO_VEHICLE0 Solid {
+  translation -416.45581934210327 10.870000000000001 0.285
+  rotation 0 0 -1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+    }
+  ]
+  name "142"
+  linearVelocity -12.986138392420798 0 0
+}
+DEF SUMO_VEHICLE1 Solid {
+  translation -395.75206933826104 7.03 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "143"
+  linearVelocity -14.10732180393552 0 0
+}
+DEF SUMO_VEHICLE2 Solid {
+  translation -357.3159637143693 7.03 0.56
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BusSimple {
+      translation -4.6 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "144"
+  linearVelocity -13.837269592254415 0 0
+}
+DEF SUMO_VEHICLE3 Solid {
+  translation -324.4088556883104 10.870000000000001 0.285
+  rotation 0 0 -1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "145"
+  linearVelocity -13.690645354117805 0 0
+}
+DEF SUMO_VEHICLE4 Solid {
+  translation -300.442366793308 7.03 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "146"
+  linearVelocity -14.54553726776794 0 0
+}
+DEF SUMO_VEHICLE5 Solid {
+  translation -249.5366641369729 7.988428166784506 0.285
+  rotation 0 0 1 3.0462883456844674
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+    }
+  ]
+  name "147"
+  linearVelocity -12.95852356773139 1.2844296245080988 0
+  angularVelocity 0 0 -0.049878744464950664
+}
+DEF SUMO_VEHICLE6 Solid {
+  translation -216.04084644513657 7.988428166784506 0.4
+  rotation 0 0 1 3.0494943546430173
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "148"
+  linearVelocity -13.377400486283477 1.2844296245080988 0
+  angularVelocity 0 0 -0.05175946116749319
+}
+DEF SUMO_VEHICLE7 Solid {
+  translation -132.91632427022202 7.03 0.317
+  rotation 0 0 -1 3.141592653589793
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "149"
+  linearVelocity -14.231623305781795 0 0
+}
+DEF SUMO_VEHICLE8 Solid {
+  translation -345.1206412810575 -3.18 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+      trailer TruckTrailerSimple {
+        appearance PBRAppearance {
+          baseColorMap ImageTexture {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/textures/truck_trailer_red.jpg"
+            ]
+          }
+          roughness 0.4
+          metalness 0
+        }
+      }
+    }
+  ]
+  name "165"
+  linearVelocity 13.82267458707247 0 0
+}
+DEF SUMO_VEHICLE9 Solid {
+  translation -83.47745517411155 3.18 0.374
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "303"
+  linearVelocity -14.387083174128747 0 0
+}
+DEF SUMO_VEHICLE10 Solid {
+  translation -271.01979159334303 -10.870000000000001 0.317
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "163"
+  linearVelocity 14.107135584313255 0 0
+}
+DEF SUMO_VEHICLE11 Solid {
+  translation -10.824856381124537 3.18 0.4
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "311"
+  linearVelocity -5.497811438003737 0 0
+}
+DEF SUMO_VEHICLE12 Solid {
+  translation -5.031070221830894 7.03 0.374
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "313"
+  linearVelocity -3.2127594095118184 0 0
+}
+DEF SUMO_VEHICLE13 Solid {
+  translation -429.86156039869405 -7.03 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "168"
+  linearVelocity 14.636066073380789 0 0
+}
+DEF SUMO_VEHICLE14 Solid {
+  translation -27.033881943687156 -7.03 0.317
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "156"
+  linearVelocity 15.03329135185595 0 0
+}
+DEF SUMO_VEHICLE15 Solid {
+  translation -66.93725126244112 -10.870000000000001 0.36
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "157"
+  linearVelocity 14.3563555445553 0 0
+}
+DEF SUMO_VEHICLE16 Solid {
+  translation -111.66884546252979 -10.870000000000001 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "158"
+  linearVelocity 13.486791387131234 0 0
+}
+DEF SUMO_VEHICLE17 Solid {
+  translation -106.18272300828777 7.03 0.285
+  rotation 0 0 -1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "301"
+  linearVelocity -14.066221411671904 0 0
+}
+DEF SUMO_VEHICLE18 Solid {
+  translation -155.7224520981858 -7.03 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "159"
+  linearVelocity 12.632390648163891 0 0
+}
+DEF SUMO_VEHICLE19 Solid {
+  translation -169.6625792505706 -10.870000000000001 0.5
+  children [
+    TruckSimple {
+      translation -5.2 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+      trailer NULL
+    }
+  ]
+  name "160"
+  linearVelocity 14.299198123685528 0 0
+}
+DEF SUMO_VEHICLE20 Solid {
+  translation -198.6409396344557 -7.03 0.285
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "161"
+  linearVelocity 14.5311631814684 0 0
+}
+DEF SUMO_VEHICLE21 Solid {
+  translation -236.41062800513512 -7.988428166784507 0.285
+  rotation 0 0 -1 0.08728416039279141
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "162"
+  linearVelocity 14.14074566713225 -1.2844296245080944 0
+  angularVelocity 0 0 -0.047129798370275644
+}
+DEF SUMO_VEHICLE22 Solid {
+  translation -64.60276375320619 10.870000000000001 0.317
+  rotation 0 0 -1 3.141592653589793
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "305"
+  linearVelocity -14.285209184940868 0 0
+}
+DEF SUMO_VEHICLE23 Solid {
+  translation -40.48230521798327 3.18 0.36
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "307"
+  linearVelocity -12.300030525984766 0 0
+}
+DEF SUMO_VEHICLE24 Solid {
+  translation -321.158471803713 -10.870000000000001 0.4
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "164"
+  linearVelocity 12.628488187665425 0 0
+}
+DEF SUMO_VEHICLE25 Solid {
+  translation -21.851714115404484 10.870000000000001 0.36
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "309"
+  linearVelocity -8.747043942130404 0 0
+}
+DEF SUMO_VEHICLE26 Solid {
+  translation -373.25862523663136 -10.870000000000001 0.317
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "166"
+  linearVelocity 13.89356777312969 0 0
+}
+DEF SUMO_VEHICLE27 Solid {
+  translation -374.7126858002426 -7.03 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "167"
+  linearVelocity 16.468192621887283 0 0
+}
+DEF SUMO_VEHICLE28 Solid {
+  translation -452.56766099387386 10.870000000000001 0.36
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "141"
+  linearVelocity -13.346010589425532 0 0
+}

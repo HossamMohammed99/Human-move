@@ -1,0 +1,524 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/protos/SumoInterface.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/Pole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficLightStandardLampGeometry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/RoadIntersection.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/sick/protos/SickLms291.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/bmw/BmwX5Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/citroen/CitroenCZeroSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/toyota/ToyotaPriusSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/lincoln/LincolnMKZSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/range_rover/RangeRoverSportSVRSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/mercedes_benz/MercedesBenzSprinterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/BusSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckTrailerSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/TruckTankSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/ScooterSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/ScooterDriver.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/MotorbikeSimple.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/generic/MotorbikeDriver.proto"
+
+WorldInfo {
+  ERP 0.6
+  basicTimeStep 20
+  lineScale 5
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TruckWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.1533946936885323 -0.29356710351011117 -0.943550965070189 5.435842540370256
+  position 17.067636641567304 -5.665600496907137 3.670983753873574
+  near 0.5
+  far 2000
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Fog {
+  color 0.396078431372549 0.396078431372549 0.396078431372549
+  visibilityRange 700
+}
+SumoInterface {
+  useNetconvert TRUE
+  enableWheelsRotation TRUE
+  children [
+    DEF TRAFFIC_LIGHT_NORTH Pole {
+      translation -3.9 3.9 0
+      rotation 0 0 -1 1.57079
+      name "north pole"
+      slot [
+        DEF TLS_0_0 TrafficLight {
+          rotation 0 0 1 3.14159
+          red_light "0_0_r"
+          orange_light "0_0_y"
+          green_light "0_0_g"
+          lamp_geometry TrafficLightStandardLampGeometry {
+          }
+          recognitionColors [
+            0.25 0.25 0.25
+            1 0 0
+          ]
+        }
+      ]
+    }
+    DEF TRAFFIC_LIGHT_RIGHT Pole {
+      translation -3.9 -3.9 0
+      rotation 0 0 1 6.28319
+      name "right pole"
+      slot [
+        DEF TLS_0_1 TrafficLight {
+          rotation 0 0 1 3.14159
+          red_light "0_1_r"
+          orange_light "0_1_y"
+          green_light "0_1_g"
+          lamp_geometry TrafficLightStandardLampGeometry {
+          }
+          recognitionColors [
+            0.25 0.25 0.25
+            0 1 0
+          ]
+        }
+      ]
+    }
+    DEF TRAFFIC_LIGHT_SOUTH Pole {
+      translation 3.9 -3.9 0
+      rotation 0 0 1 5.49778
+      name "south pole"
+      slot [
+        DEF TLS_0_2 TrafficLight {
+          rotation 0 0 1 5.49778
+          red_light "0_2_r"
+          orange_light "0_2_y"
+          green_light "0_2_g"
+          lamp_geometry TrafficLightStandardLampGeometry {
+          }
+          recognitionColors [
+            0.25 0.25 0.25
+            1 0 0
+          ]
+        }
+      ]
+    }
+    DEF TRAFFIC_LIGHT_LEFT Pole {
+      translation 3.9 3.9 0
+      rotation 0 0 -1 6.28318
+      name "left pole"
+      slot [
+        DEF TLS_0_3 TrafficLight {
+          red_light "0_3_r"
+          orange_light "0_3_y"
+          green_light "0_3_g"
+          lamp_geometry TrafficLightStandardLampGeometry {
+          }
+          recognitionColors [
+            0.25 0.25 0.25
+            0 1 0
+          ]
+        }
+      ]
+    }
+  ]
+}
+RoadIntersection {
+  rotation 0 0 1 0.7854
+  roadsWidth 8
+  startRoadsLength [
+    500
+  ]
+}
+Floor {
+  translation 0 0 -0.01
+  size 1000 1000
+  tileSize 2 2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/worlds/textures/ground.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+}
+DEF SUMO_VEHICLE0 RangeRoverSportSVRSimple {
+  hidden rotation_2 0 1 0 1.9342673925764542
+  hidden rotation_4 -0.8232620069089621 1.1140169240155562e-06 -0.567661578741231 3.1415911584158627
+  hidden rotation_6 0 1 0 1.9342673925764542
+  hidden rotation_8 -0.8232620069089621 1.1140169240155562e-06 -0.567661578741231 3.1415911584158627
+  translation 26.856681459785296 1.6000000000000232 0.358
+  rotation 0 0 -1 3.141592653589793
+  color 0.43 0.11 0.1
+  recognitionColors [
+    0.43 0.11 0.1
+  ]
+  name "left_initial_0"
+  controller "enable_all_lidars"
+  sensorsSlotFront [
+    SickLms291 {
+      translation 0.09999999999999996 0 0
+      noise 0.5
+    }
+  ]
+  frontRightWheelAngularVelocity 0 51.171926066169625 0
+  frontLeftWheelAngularVelocity 0 51.171926066169625 0
+  rearRightWheelAngularVelocity 0 51.171926066169625 0
+  rearLeftWheelAngularVelocity 0 51.171926066169625 0
+}
+DEF SUMO_VEHICLE1 Solid {
+  translation -32.26996509221978 1.6000000000000232 0.4
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MercedesBenzSprinterSimple {
+      hidden rotation_1 0 1 0 1.4493370459180694
+      hidden rotation_3 -0.6628872958624494 8.646120475049952e-07 -0.7487191950146744 3.141590684436438
+      hidden rotation_5 0 1 0 1.4493370459180694
+      hidden rotation_7 -0.6628872958624494 8.646120475049952e-07 -0.7487191950146744 3.141590684436438
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+      frontRightWheelAngularVelocity 0 24.393428612414745 0
+      frontLeftWheelAngularVelocity 0 24.393428612414745 0
+      rearRightWheelAngularVelocity 0 24.393428612414745 0
+      rearLeftWheelAngularVelocity 0 24.393428612414745 0
+    }
+  ]
+  name "left_initial_1"
+  linearVelocity -9.757371444966054 0 0
+}
+DEF SUMO_VEHICLE2 Solid {
+  translation -130.88013174054615 1.6000000000000232 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    LincolnMKZSimple {
+      hidden rotation_1 0 1 0 0.6664029210759721
+      hidden rotation_3 -0.3270700798374509 4.3104177561047444e-07 -0.9450000861772118 3.141590179637997
+      hidden rotation_5 0 1 0 0.6664029210759721
+      hidden rotation_7 -0.3270700798374509 4.3104177561047444e-07 -0.9450000861772118 3.141590179637997
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+      frontRightWheelAngularVelocity 0 30.489959166980988 0
+      frontLeftWheelAngularVelocity 0 30.489959166980988 0
+      rearRightWheelAngularVelocity 0 30.489959166980988 0
+      rearLeftWheelAngularVelocity 0 30.489959166980988 0
+    }
+  ]
+  name "left_initial_2"
+  linearVelocity -10.915405381779237 0 0
+}
+DEF SUMO_VEHICLE3 Solid {
+  translation -182.32669836581044 1.6000000000000232 0.317
+  rotation 0 0 -1 3.141592653589793
+  children [
+    ToyotaPriusSimple {
+      hidden rotation_1 0 1 0 2.107982203577132
+      hidden rotation_3 -0.8694021684835884 1.214666811303716e-06 -0.49410511982224825 3.1415912300803748
+      hidden rotation_5 0 1 0 2.107982203577132
+      hidden rotation_7 -0.8694021684835884 1.214666811303716e-06 -0.49410511982224825 3.1415912300803748
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+      frontRightWheelAngularVelocity 0 32.24185029565526 0
+      frontLeftWheelAngularVelocity 0 32.24185029565526 0
+      rearRightWheelAngularVelocity 0 32.24185029565526 0
+      rearLeftWheelAngularVelocity 0 32.24185029565526 0
+    }
+  ]
+  name "left_initial_3"
+  linearVelocity -10.220666543722814 0 0
+}
+DEF SUMO_VEHICLE4 Solid {
+  translation -222.85831263320688 1.6000000000000232 0.358
+  rotation 0 0 -1 3.141592653589793
+  children [
+    RangeRoverSportSVRSimple {
+      hidden rotation_1 0 1 0 1.8878647386733833
+      hidden rotation_3 -0.8098711149312529 1.0716819284997428e-06 -0.5866078564073799 3.1415911195660895
+      hidden rotation_5 0 1 0 1.8878647386733833
+      hidden rotation_7 -0.8098711149312529 1.0716819284997428e-06 -0.5866078564073799 3.1415911195660895
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+      frontRightWheelAngularVelocity 0 26.5072350855667 0
+      frontLeftWheelAngularVelocity 0 26.5072350855667 0
+      rearRightWheelAngularVelocity 0 26.5072350855667 0
+      rearLeftWheelAngularVelocity 0 26.5072350855667 0
+    }
+  ]
+  name "left_initial_4"
+  linearVelocity -9.489590160632702 0 0
+}
+DEF SUMO_VEHICLE5 Solid {
+  translation 2.036592842757045 -1.600000000000023 0.36
+  children [
+    TeslaModel3Simple {
+      hidden rotation_1 0.5164949533516544 0.6054887293662624 -0.6054885314956023 2.1880797375961265
+      hidden rotation_2 -0.6381876720619539 -0.5443878787348871 -0.5443880350583337 2.005539605487472
+      hidden rotation_3 0.5164949533516544 0.6054887293662624 -0.6054885314956023 2.1880797375961265
+      hidden rotation_4 -0.6381876720619539 -0.5443878787348871 -0.5443880350583337 2.005539605487472
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+      frontRightWheelAngularVelocity 0 33.34545804539375 0
+      frontLeftWheelAngularVelocity 0 33.34545804539375 0
+      rearRightWheelAngularVelocity 0 33.34545804539375 0
+      rearLeftWheelAngularVelocity 0 33.34545804539375 0
+    }
+  ]
+  name "right_initial_0"
+  linearVelocity 12.004364896341713 0 0
+}
+DEF SUMO_VEHICLE6 Solid {
+  translation 43.458835542673924 -1.600000000000023 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      hidden rotation_1 0 -1 0 2.579410758886506
+      hidden rotation_3 0.9607533769990776 -1.3311627032867905e-06 -0.2774039447864722 3.1415918586439173
+      hidden rotation_5 0 -1 0 2.579410758886506
+      hidden rotation_7 0.9607533769990776 -1.3311627032867905e-06 -0.2774039447864722 3.1415918586439173
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+      frontRightWheelAngularVelocity 0 28.475417623728262 0
+      frontLeftWheelAngularVelocity 0 28.475417623728262 0
+      rearRightWheelAngularVelocity 0 28.475417623728262 0
+      rearLeftWheelAngularVelocity 0 28.475417623728262 0
+    }
+  ]
+  name "right_initial_1"
+  linearVelocity 10.19419950929489 0 0
+}
+DEF SUMO_VEHICLE7 Solid {
+  translation 101.53233403278713 -1.600000000000023 0.285
+  children [
+    CitroenCZeroSimple {
+      hidden rotation_1 0 -1 0 2.7089814969623385
+      hidden rotation_3 0.9766970198645069 -1.2830285587039404e-06 -0.2146227653026233 3.141592047935034
+      hidden rotation_5 0 -1 0 2.7089814969623385
+      hidden rotation_7 0.9766970198645069 -1.2830285587039404e-06 -0.2146227653026233 3.141592047935034
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+      frontRightWheelAngularVelocity 0 34.172677350085976 0
+      frontLeftWheelAngularVelocity 0 34.172677350085976 0
+      rearRightWheelAngularVelocity 0 34.172677350085976 0
+      rearLeftWheelAngularVelocity 0 34.172677350085976 0
+    }
+  ]
+  name "right_initial_2"
+  linearVelocity 9.739213044774147 0 0
+}
+DEF SUMO_VEHICLE8 Solid {
+  translation 207.45411428393086 -1.600000000000023 0.374
+  children [
+    BmwX5Simple {
+      hidden rotation_1 0 1 0 0.8484755509117906
+      hidden rotation_3 -0.4116262459514072 5.335991354245928e-07 -0.9113527492928669 3.1415901965695006
+      hidden rotation_5 0 1 0 0.8484755509117906
+      hidden rotation_7 -0.4116262459514072 5.335991354245928e-07 -0.9113527492928669 3.1415901965695006
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+      frontRightWheelAngularVelocity 0 29.966286445191358 0
+      frontLeftWheelAngularVelocity 0 29.966286445191358 0
+      rearRightWheelAngularVelocity 0 29.966286445191358 0
+      rearLeftWheelAngularVelocity 0 29.966286445191358 0
+    }
+  ]
+  name "right_initial_3"
+  linearVelocity 11.207391130501492 0 0
+}
+DEF SUMO_VEHICLE9 Solid {
+  translation 294.623234431002 -1.600000000000023 0.358
+  children [
+    LincolnMKZSimple {
+      hidden rotation_1 0 1 0 1.286610321761807
+      hidden rotation_3 -0.599843230152014 8.983141254436264e-07 -0.800117553388245 3.1415901727366418
+      hidden rotation_5 0 1 0 1.286610321761807
+      hidden rotation_7 -0.599843230152014 8.983141254436264e-07 -0.800117553388245 3.1415901727366418
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+      frontRightWheelAngularVelocity 0 37.08020063391519 0
+      frontLeftWheelAngularVelocity 0 37.08020063391519 0
+      rearRightWheelAngularVelocity 0 37.08020063391519 0
+      rearLeftWheelAngularVelocity 0 37.08020063391519 0
+    }
+  ]
+  name "right_initial_4"
+  linearVelocity 13.274711826941825 0 0
+}
+DEF SUMO_VEHICLE10 Solid {
+  translation -330.1691792007803 -1.600000000000023 0.36
+  children [
+    TeslaModel3Simple {
+      hidden rotation_1 0.7525286745437415 0.4656719530531167 -0.46567180087389387 1.851357345216043
+      hidden rotation_2 -0.4008683082470456 -0.6478057086134045 -0.6478058068055862 2.3790829911560896
+      hidden rotation_3 0.7525286745437415 0.4656719530531167 -0.46567180087389387 1.851357345216043
+      hidden rotation_4 -0.4008683082470456 -0.6478057086134045 -0.6478058068055862 2.3790829911560896
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+      frontRightWheelAngularVelocity 0 40.36986979997226 0
+      frontLeftWheelAngularVelocity 0 40.36986979997226 0
+      rearRightWheelAngularVelocity 0 40.36986979997226 0
+      rearLeftWheelAngularVelocity 0 40.36986979997226 0
+    }
+  ]
+  name "right_0"
+  linearVelocity 14.53315312798992 0 0
+}
+DEF SUMO_VEHICLE11 Solid {
+  translation -417.6324320283743 -1.600000000000023 0.358
+  children [
+    RangeRoverSportSVRSimple {
+      hidden rotation_1 0 -1 0 1.6973341541508733
+      hidden rotation_3 0.7504000313418041 -9.794032513792826e-07 -0.6609839581724054 3.1415908594998867
+      hidden rotation_5 0 -1 0 1.6973341541508733
+      hidden rotation_7 0.7504000313418041 -9.794032513792826e-07 -0.6609839581724054 3.1415908594998867
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+      frontRightWheelAngularVelocity 0 28.819124156368748 0
+      frontLeftWheelAngularVelocity 0 28.819124156368748 0
+      rearRightWheelAngularVelocity 0 28.819124156368748 0
+      rearLeftWheelAngularVelocity 0 28.819124156368748 0
+    }
+  ]
+  name "right_1"
+  linearVelocity 10.31724644798004 0 0
+}
+DEF SUMO_VEHICLE12 Solid {
+  translation 464.72770584744245 1.600000000000023 0.25
+  rotation 0 0 -1 3.141592653589793
+  children [
+    MotorbikeSimple {
+      hidden rotation_1 0 -1 0 0.8400119907982043
+      hidden rotation_3 0 -1 0 0.8400119907982043
+      translation -1.7 0 0
+      primaryColor 0.254902 0.0156863 0.105882
+      secondaryColor 0.309804 0.2 0.235294
+      recognitionColors [
+        0.254902 0.0156863 0.105882
+        0.309804 0.2 0.235294
+      ]
+      driver MotorbikeDriver {
+        shirtColor 0.678431 0.678431 0.678431
+        pantsColor 0.235294 0.305882 0.415686
+        skinColor 0.6 0.552941 0.372549
+        helmetColor 0.160784 0.160784 0.223529
+      }
+      frontWheelAngularVelocity 0 27.288849204963384 0
+      rearWheelAngularVelocity 0 27.288849204963384 0
+    }
+  ]
+  name "left_2"
+  linearVelocity -6.822212301240711 0 0
+}
+DEF SUMO_VEHICLE13 Solid {
+  translation -506.46317157984134 -1.600000000000023 0.317
+  children [
+    ToyotaPriusSimple {
+      hidden rotation_1 0 1 0 1.3780076345697982
+      hidden rotation_3 -0.6357685645562363 8.436383304878279e-07 -0.7718797395458641 3.1415906049646254
+      hidden rotation_5 0 1 0 1.3780076345697982
+      hidden rotation_7 -0.6357685645562363 8.436383304878279e-07 -0.7718797395458641 3.1415906049646254
+      translation -2.85 0 0
+      frontRightWheelAngularVelocity 0 2.4451180027654686 0
+      frontLeftWheelAngularVelocity 0 2.4451180027654686 0
+      rearRightWheelAngularVelocity 0 2.4451180027654686 0
+      rearLeftWheelAngularVelocity 0 2.4451180027654686 0
+    }
+  ]
+  name "right_3"
+  linearVelocity 0.7751024068764423 0 0
+}
